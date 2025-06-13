@@ -2,6 +2,7 @@
 node_modules/
 
 # entorno
+.env
 
 # salida de build (si compilas)
 dist/

@@ -18,11 +18,13 @@ app.use(express.json());
 
 // Instancia de OpenAI y pasarle el API Key
 const openai = new OpenAI({
-    apikey: process.env.OPENAI_API_KEY
+    apiKey: process.env.OPENAI_API_KEY
 });
 
+console.log("API KEY:", process.env.OPENAI_API_KEY);
+
 // Ruta/endpoint/url
-app.post("/api/traducir", (req, res) => {
+app.post("/api/traducir", async(req, res) => {
     // Funcionalidad de traducir con IA
     const {inputText, targetLang} = req.body;
 
@@ -32,10 +34,31 @@ app.post("/api/traducir", (req, res) => {
     const promptUser =`Traduce el siguiente texto al ${targetLang}: ${inputText}`
     // Llamar al LLM o modelo de OpenAI
 
-    return res.status(200).json({
+    try {
+        const completion = await openai.chat.completions.create({
+            model: "gpt-3.5-turbo",
+            messages: [
+                {role: "system", content: promptSystem1},
+                {role: "system", content: promptSystem2},
+                {role: "user", content: promptUser}
+            ],
+            max_tokens: 500,
+            response_format: {type: "text"}
+        });
+
+        const traslatedText = completion.choices[0].message.content;
+
+        return res.status(200).json({traslatedText});
+
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({error: "Error al traducir"});
+    }
+
+    /* return res.status(200).json({
         message: "Hola qué tal, soy una ruta en Node",
         content: req.body
-    });
+    }); */
 })
 
 // Servir el BackEnd

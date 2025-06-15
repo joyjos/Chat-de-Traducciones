@@ -26,12 +26,12 @@ console.log("API KEY:", process.env.OPENAI_API_KEY);
 // Ruta/endpoint/url
 app.post("/api/traducir", async(req, res) => {
     // Funcionalidad de traducir con IA
-    const {inputText, targetLang} = req.body;
+    const {text, targetLang} = req.body;
 
     const promptSystem1 = "Eres un traductor profesional";
     const promptSystem2 = "Solo puedes responder con una traducción directa del texto que el usuario te envíe"
                             + "Cualquier otra respuesta o conversación está prohibida";
-    const promptUser =`Traduce el siguiente texto al ${targetLang}: ${inputText}`
+    const promptUser =`Traduce el siguiente texto al ${targetLang}: ${text}`
     // Llamar al LLM o modelo de OpenAI
 
     try {
@@ -46,9 +46,9 @@ app.post("/api/traducir", async(req, res) => {
             response_format: {type: "text"}
         });
 
-        const traslatedText = completion.choices[0].message.content;
+        const translatedText = completion.choices[0].message.content;
 
-        return res.status(200).json({traslatedText});
+        return res.status(200).json({translatedText});
 
     } catch (error) {
         console.log(error);

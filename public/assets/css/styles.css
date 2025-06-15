@@ -57,25 +57,21 @@ body{
 
 .chat__message {
     max-width: 75%;
-    padding: 1.5rem;
-    font-size: 1.8rem;
+    padding: 1rem;
+    font-size: 1rem;
     border-radius: 1rem;
     word-wrap: break-word;
-    display: flex;
-    align-items: center;
 }
 
 .chat__message--user {
-    justify-content: flex-end;
-    align-items: flex-end;
+    align-self: flex-end;
     background-color: #007bff;
     color: #fff;
     text-align: right;
 }
 
 .chat__message--bot {
-    justify-content: flex-start;
-    align-items: flex-start;
+    align-self: flex-start;
     background-color: #e0e0e0;
     color: #333;
     text-align: left;

@@ -25,6 +25,8 @@ Chat de Traducciones que permite a los usuarios traducir texto entre diferentes 
   npm start
   ~~~
 
+<br>
+
 <a id="section_02"></a>
 ## *02 Languages and Technologies*
 
@@ -45,6 +47,8 @@ Chat de Traducciones que permite a los usuarios traducir texto entre diferentes 
 ### Otras herramientas
 ![VSCode](https://img.shields.io/badge/VSCode-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white)
 ![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=Postman&logoColor=white)
+
+<br>
 
 <a id="section_03"></a>
 ## *03 API Endpoints*

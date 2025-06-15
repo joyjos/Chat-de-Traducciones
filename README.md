@@ -1,5 +1,6 @@
 ## Chat de Traducciones
 Chat de Traducciones con integración de Inteligencia Artificial.
+
 Chat de Traducciones que permite a los usuarios traducir texto entre diferentes idiomas de forma dinámica y conversacional. Integra la API de OpenAI para ofrecer traducciones precisas, naturales y contextuales a través de un chat intuitivo.
 
 ## Table of Content
